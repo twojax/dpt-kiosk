@@ -1,0 +1,274 @@
+:root {
+  --navy: #221c63;
+  --navy-deep: #1b1650;
+  --violet: #4b3cb0;
+  --violet-light: #7a67d6;
+  --white: #ffffff;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000; /* letterbox colour */
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+html.kiosk, html.kiosk * { cursor: none !important; }
+
+/* ---------- Stage ---------- */
+
+.viewport { position: fixed; inset: 0; }
+
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  color: var(--white);
+  /* Fallback art; .screen-bg covers it once bg-bubbles.jpg is in place. */
+  background:
+    radial-gradient(circle at 78% 30%, rgba(160,140,240,.35) 0 9%, transparent 9.2%),
+    radial-gradient(circle at 70% 78%, rgba(140,120,230,.3) 0 12%, transparent 12.2%),
+    radial-gradient(circle at 12% 55%, #5a49c2 0 38%, transparent 38.2%),
+    linear-gradient(135deg, #3d2f9e, #5b45bf 55%, #6b50c4);
+}
+.screen > * { position: absolute; }
+.screen-bg { inset: 0; background: center / cover no-repeat; pointer-events: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+button:focus-visible {
+  outline: 4px solid #9fd0ff;
+  outline-offset: 6px;
+}
+
+/* ---------- Chrome ---------- */
+
+.back-button {
+  left: 69px;
+  top: 62px;
+  height: 81px;
+  padding: 0 44px 0 34px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  background: rgba(27, 22, 80, 0.88);
+  border-radius: 6px;
+  transition: background 150ms;
+}
+.back-button:active { background: rgba(27, 22, 80, 1); }
+
+.screen-title {
+  left: 130px;
+  top: 172px;
+  margin: 0;
+  font-size: 86px;
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+
+.screen-logo { left: 74px; bottom: 76px; width: 258px; }
+.logo-fallback { display: flex; flex-direction: column; gap: 2px; }
+.logo-fallback strong { font-size: 44px; font-weight: 700; letter-spacing: 0.04em; line-height: 1; }
+.logo-fallback span { font-size: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
+
+/* ---------- Hub ---------- */
+
+.hub {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--white);
+  background: var(--violet);
+}
+.hub-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hub::after { /* violet wash over the photo, as in the comp */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(75, 60, 176, 0.55);
+  mix-blend-mode: multiply;
+}
+.hub-icon {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+}
+
+/* ---------- Connectors ---------- */
+
+.connectors { inset: 0; pointer-events: none; overflow: visible; }
+
+.arc {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5;
+  stroke-dasharray: 7 7;
+}
+.spoke, .reach {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5;
+}
+.reach {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 260ms ease-in;
+}
+.reach[data-active='true'] {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 320ms var(--ease-out);
+}
+
+.node-ring { fill: var(--navy); stroke: var(--white); stroke-width: 5; }
+.node-dot { fill: var(--white); }
+
+/* ---------- Hex buttons ---------- */
+
+.hex-button {
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  filter: drop-shadow(0 4px 10px rgba(20, 12, 70, 0.28));
+  transition: transform 140ms var(--ease-out);
+}
+.hex-button:active { transform: scale(0.97); }
+.hex-shape { position: absolute; inset: 0; overflow: visible; }
+.hex-label {
+  position: relative;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+.hex-plus {
+  position: absolute;
+  right: 2px;
+  top: -18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--white);
+  color: var(--navy);
+  border: 3px solid var(--navy);
+  box-shadow: -2px 3px 5px rgba(20, 12, 70, 0.3);
+  transition: transform 200ms var(--ease-out), opacity 200ms;
+}
+.hex-button[data-active='true'] .hex-plus {
+  transform: scale(0.4);
+  opacity: 0;
+}
+
+/* Enlarge the touch target beyond the drawn shape. */
+.hex-button::before {
+  content: '';
+  position: absolute;
+  inset: -16px -10px;
+}
+
+/* ---------- Detail panel ---------- */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  color: var(--navy);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(18, 10, 64, 0.35);
+  opacity: 0;
+  transform: translateX(-18px);
+  visibility: hidden;
+  transition: opacity 180ms, transform 180ms, visibility 0s 180ms;
+}
+.panel[data-active='true'] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition: opacity 260ms 140ms, transform 320ms 140ms var(--ease-out), visibility 0s;
+}
+
+.panel-text { padding: 46px 44px 34px; }
+.panel h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+.panel p {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.45;
+  color: #2c2766;
+}
+.panel-image {
+  display: block;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Missing-asset placeholder ---------- */
+
+.asset-missing {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, #d9d5ee 0 14px, #e7e4f5 14px 28px);
+  color: #4b4580;
+  font-size: 18px;
+  font-family: ui-monospace, monospace;
+}
+.hub .asset-missing { background: #5a49c2; color: transparent; }
+
+/* ---------- Home stand-in ---------- */
+
+.screen-home .home-link { left: 130px; top: 360px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; }
+}
