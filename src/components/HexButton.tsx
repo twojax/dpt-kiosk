@@ -4,17 +4,19 @@ interface Props {
   label: string
   x: number
   y: number
+  width?: number
   active: boolean
   controls: string
   onPress: () => void
 }
 
-const { width: W, height: H, tip: T } = PILL
+const { height: H, tip: T } = PILL
 const S = 3
 const I = S / 2
-const HEX = `M${I},${H / 2} L${T},${I} H${W - T} L${W - I},${H / 2} L${W - T},${H - I} H${T} Z`
+const hexPath = (W: number) =>
+  `M${I},${H / 2} L${T},${I} H${W - T} L${W - I},${H / 2} L${W - T},${H - I} H${T} Z`
 
-export function HexButton({ label, x, y, active, controls, onPress }: Props) {
+export function HexButton({ label, x, y, width: W = PILL.width, active, controls, onPress }: Props) {
   return (
     <button
       type="button"
@@ -26,7 +28,7 @@ export function HexButton({ label, x, y, active, controls, onPress }: Props) {
       onClick={onPress}
     >
       <svg className="hex-shape" width={W} height={H} viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
-        <path d={HEX} fill="url(#hexFill)" stroke="var(--navy)" strokeWidth={S} />
+        <path d={hexPath(W)} fill="url(#hexFill)" stroke="var(--navy)" strokeWidth={S} />
       </svg>
       <span className="hex-label">{label}</span>
       <span className="hex-plus" aria-hidden="true">

@@ -22,7 +22,7 @@ export function spokePath(hub: Hub, s: Section) {
 /** Right tip of the button → edge of the detail panel. */
 export function reachPath(panel: HubPage['panel'], s: Section) {
   const y = s.pill.y + PILL.height / 2
-  return `M${s.pill.x + PILL.width},${y} H${panel.x}`
+  return `M${s.pill.x + (s.pill.width ?? PILL.width)},${y} H${panel.x}`
 }
 
 export function arcPath(hub: Hub) {

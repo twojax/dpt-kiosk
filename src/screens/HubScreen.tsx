@@ -54,6 +54,7 @@ export function HubScreen({ page, icon, onHome }: { page: HubPage; icon: ReactNo
           label={s.label}
           x={s.pill.x}
           y={s.pill.y}
+          width={s.pill.width}
           active={open === s.id}
           controls={`panel-${s.id}`}
           onPress={() => toggle(s.id)}

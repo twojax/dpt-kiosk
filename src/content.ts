@@ -24,13 +24,14 @@ export interface Section {
   label: string;
   /** Panel heading. Omit for panels that are just body text and an image. */
   title?: string;
-  body: string;
+  /** A paragraph, or an array of strings for a bulleted list. */
+  body: string | string[];
   image: string;
   imageAlt: string;
   /** Angle of this node on the dashed arc, in degrees (0 = straight right). */
   nodeAngle: number;
-  /** Top-left corner of the hex button. */
-  pill: { x: number; y: number };
+  /** Top-left corner of the hex button; width defaults to PILL.width. */
+  pill: { x: number; y: number; width?: number };
   /** Overrides the page's panel top so this button's connector meets the panel. */
   panelY?: number;
 }
@@ -237,6 +238,60 @@ export const aerosols: HubPage = {
       nodeAngle: 42,
       pill: { x: 701, y: 802 },
       panelY: 430,
+    },
+  ],
+};
+
+export const analytics: HubPage = {
+  id: "analytics",
+  title: "Analytics",
+  hub: { ...HUB_SIZE, cx: 308, cy: 604, photo: "./assets/analytics/hub.jpg" },
+  panel: { x: 1214, y: 249, width: 600 },
+  sections: [
+    {
+      id: "stabilityTesting",
+      label: "Stability Testing",
+      body: [
+        "ICH and custom stability studies",
+        "Accelerated and long-term studies",
+        "Physical, chemical, and microbiological testing",
+        "Photostability and freeze/thaw studies",
+      ],
+      image: "./assets/analytics/stability-testing.jpg",
+      imageAlt: "",
+      nodeAngle: -42,
+      pill: { x: 683, y: 317 },
+    },
+    {
+      id: "microbiologyTesting",
+      label: "Microbiology Testing",
+      body: [
+        "Microbial limits testing",
+        "Antimicrobial effectiveness testing (AET)",
+        "Water testing",
+        "Environmental monitoring",
+      ],
+      image: "./assets/analytics/microbiology-testing.jpg",
+      imageAlt: "",
+      nodeAngle: 0,
+      pill: { x: 726, y: 570, width: 382 },
+    },
+    {
+      id: "analyticalTesting",
+      label: "Analytical Testing",
+      body: [
+        "Method development and validation",
+        "Gas and liquid chromatography",
+        "Spectroscopy",
+        "Diffusion studies",
+        "In vitro release testing",
+        "Method transfer support",
+      ],
+      image: "./assets/analytics/analytical-testing.jpg",
+      imageAlt: "",
+      nodeAngle: 42,
+      pill: { x: 683, y: 819 },
+      panelY: 290,
     },
   ],
 };

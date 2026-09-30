@@ -116,6 +116,8 @@ button:focus-visible {
   object-fit: cover;
   display: block;
 }
+/* This export is pre-masked to a circle flush left, with padding on the right. */
+.screen[data-page='analytics'] .hub-photo { object-position: left center; }
 .hub::after { /* violet wash over the photo, as in the comp */
   content: '';
   position: absolute;
@@ -255,6 +257,13 @@ button:focus-visible {
 .screen[data-page='aerosols'] .panel-text { padding: 40px 38px 34px; }
 .screen[data-page='aerosols'] .panel h2 { font-size: 28px; }
 .screen[data-page='aerosols'] .panel p { font-size: 23px; line-height: 1.25; }
+.panel ul {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 23px;
+  line-height: 33px;
+  color: #2c2766;
+}
 .panel[data-fit='true'] .panel-image { flex: none; height: auto; aspect-ratio: 3 / 2; }
 
 /* ---------- Missing-asset placeholder ---------- */

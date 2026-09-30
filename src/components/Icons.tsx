@@ -64,6 +64,25 @@ export function AerosolCan() {
   )
 }
 
+export function Analytics() {
+  return (
+    <svg width="224" height="236" viewBox="0 0 224 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M75.4366 3.49683H3.49695V25.4981H75.4366V3.49683Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M66.5808 25.4978V207.553C66.5808 220.874 55.7859 231.672 42.4676 231.672H38.7688C25.4505 231.672 14.6555 220.874 14.6555 207.553V25.4978" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M158.78 39.5515C168.732 39.5515 176.8 31.4816 176.8 21.527C176.8 11.5723 168.732 3.50244 158.78 3.50244C148.827 3.50244 140.759 11.5723 140.759 21.527C140.759 31.4816 148.827 39.5515 158.78 39.5515Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M115.502 105.494C125.454 105.494 133.522 97.4243 133.522 87.4696C133.522 77.5149 125.454 69.4451 115.502 69.4451C105.549 69.4451 97.4813 77.5149 97.4813 87.4696C97.4813 97.4243 105.549 105.494 115.502 105.494Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M202.052 105.494C212.005 105.494 220.073 97.4243 220.073 87.4696C220.073 77.5149 212.005 69.4451 202.052 69.4451C192.1 69.4451 184.032 77.5149 184.032 87.4696C184.032 97.4243 192.1 105.494 202.052 105.494Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M125.695 72.603L148.953 36.634" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M192.093 72.603L168.841 36.634" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M211.879 135.836H193.859V225.657H211.879V135.836Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M179.076 158.466H161.056V225.657H179.076V158.466Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M146.267 180.75H128.247V225.663H146.267V180.75Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M113.464 203.2H95.4435V225.657H113.464V203.2Z" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M66.58 65.4561L14.6486 108.843" stroke="white" stroke-width="6.99387" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+
 export function Microscope() {
   return (
     <svg width="207" height="288" viewBox="0 0 207 288" fill="none" xmlns="http://www.w3.org/2000/svg">

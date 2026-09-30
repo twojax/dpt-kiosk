@@ -23,7 +23,15 @@ export function DetailPanel({ section, panel, active }: Props) {
     >
       <div className="panel-text">
         {section.title && <h2 id={titleId}>{section.title}</h2>}
-        <p>{section.body}</p>
+        {Array.isArray(section.body) ? (
+          <ul>
+            {section.body.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{section.body}</p>
+        )}
       </div>
       <Asset className="panel-image" src={section.image} alt={section.imageAlt} />
     </section>
