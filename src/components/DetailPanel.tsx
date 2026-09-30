@@ -1,19 +1,27 @@
-import { PANEL, type Section } from '../content'
+import type { HubPage, Section } from '../content'
 import { Asset } from './Asset'
 
-export function DetailPanel({ section, active }: { section: Section; active: boolean }) {
+interface Props {
+  section: Section
+  panel: HubPage['panel']
+  active: boolean
+}
+
+export function DetailPanel({ section, panel, active }: Props) {
+  const titleId = `panel-${section.id}-title`
   return (
     <section
       id={`panel-${section.id}`}
       className="panel"
       data-active={active}
+      data-fit={panel.height === undefined}
       aria-hidden={!active}
       inert={!active}
-      aria-labelledby={`panel-${section.id}-title`}
-      style={{ left: PANEL.x, top: PANEL.y, width: PANEL.width, height: PANEL.height }}
+      {...(section.title ? { 'aria-labelledby': titleId } : { 'aria-label': section.label })}
+      style={{ left: panel.x, top: section.panelY ?? panel.y, width: panel.width, height: panel.height }}
     >
       <div className="panel-text">
-        <h2 id={`panel-${section.id}-title`}>{section.title}</h2>
+        {section.title && <h2 id={titleId}>{section.title}</h2>}
         <p>{section.body}</p>
       </div>
       <Asset className="panel-image" src={section.image} alt={section.imageAlt} />

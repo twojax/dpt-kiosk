@@ -1,8 +1,9 @@
-import { STAGE, sections, type SectionId } from '../content'
+import { STAGE, type HubPage } from '../content'
 import { arcPath, nodePoint, reachPath, spokePath } from '../geometry'
 
 /** The dashed arc, node dots and connector lines, drawn in stage pixels. */
-export function Connectors({ open }: { open: SectionId | null }) {
+export function Connectors({ page, open }: { page: HubPage; open: string | null }) {
+  const { hub, panel, sections } = page
   return (
     <svg
       className="connectors"
@@ -19,10 +20,10 @@ export function Connectors({ open }: { open: SectionId | null }) {
         </linearGradient>
       </defs>
 
-      <path className="arc" d={arcPath()} />
+      <path className="arc" d={arcPath(hub)} />
 
       {sections.map((s) => (
-        <path key={`spoke-${s.id}`} className="spoke" d={spokePath(s)} />
+        <path key={`spoke-${s.id}`} className="spoke" d={spokePath(hub, s)} />
       ))}
 
       {sections.map((s) => (
@@ -30,13 +31,13 @@ export function Connectors({ open }: { open: SectionId | null }) {
           key={`reach-${s.id}`}
           className="reach"
           data-active={open === s.id}
-          d={reachPath(s)}
+          d={reachPath(panel, s)}
           pathLength={1}
         />
       ))}
 
       {sections.map((s) => {
-        const n = nodePoint(s.nodeAngle)
+        const n = nodePoint(hub, s.nodeAngle)
         return (
           <g key={`node-${s.id}`} className="node" data-active={open === s.id}>
             <circle cx={n.x} cy={n.y} r={22} className="node-ring" />

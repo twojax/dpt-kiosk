@@ -250,6 +250,7 @@ button:focus-visible {
   width: 100%;
   object-fit: cover;
 }
+.panel[data-fit='true'] .panel-image { flex: none; height: auto; aspect-ratio: 3 / 2; }
 
 /* ---------- Missing-asset placeholder ---------- */
 
@@ -268,6 +269,7 @@ button:focus-visible {
 /* ---------- Home stand-in ---------- */
 
 .screen-home .home-link { left: 130px; top: 360px; }
+.screen-home .home-link-2 { top: 470px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; }

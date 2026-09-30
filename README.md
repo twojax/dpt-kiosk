@@ -39,7 +39,10 @@ agency's SVG.
 - `src/geometry.ts` — how the arc, nodes and connector lines are derived
 - `src/styles.css` — colours, type and transitions
 
-Adding a section is one more entry in `sections` with a `nodeAngle` and `pill` position.
+Each hub screen (`development`, `semiSolids`) is a `HubPage` in `content.ts` with
+its own hub position, panel rect and `sections`. Adding a button is one more
+entry in `sections` with a `nodeAngle` and `pill` position; leave out `title`
+for a panel that's just body text and an image.
 
 ## Behaviour
 
