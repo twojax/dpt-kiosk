@@ -36,9 +36,11 @@ export interface Section {
 }
 
 export interface HubPage {
+  id: string;
   title: string;
   hub: Hub;
-  /** Leave out height to size the panel to its text plus a 3:2 image. */
+  /** Leave out height to size the panel to its text plus a 3:2 image.
+   *  Sections without a title always size this way. */
   panel: Omit<Rect, "height"> & { height?: number };
   sections: Section[];
 }
@@ -59,6 +61,7 @@ export const PILL = { width: 344, height: 68, tip: 22 };
 export const IDLE_TIMEOUT_MS = 90_000;
 
 export const development: HubPage = {
+  id: "development",
   title: "Development",
   hub: { ...HUB_SIZE, cx: 335, cy: 589, photo: "./assets/development/hub.jpg" },
   panel: { x: 1236, y: 223, width: 564, height: 724 },
@@ -98,6 +101,7 @@ export const development: HubPage = {
 };
 
 export const semiSolids: HubPage = {
+  id: "semiSolids",
   title: "Semi-Solids",
   hub: { ...HUB_SIZE, cx: 365, cy: 598, photo: "./assets/semi-solids/hub.jpg" },
   panel: { x: 1264, y: 232, width: 532 },
@@ -144,6 +148,7 @@ export const semiSolids: HubPage = {
 };
 
 export const liquids: HubPage = {
+  id: "liquids",
   title: "Liquids",
   hub: { ...HUB_SIZE, cx: 350, cy: 590, photo: "./assets/liquids/hub.jpg" },
   panel: { x: 1242, y: 204, width: 554 },
@@ -193,6 +198,44 @@ export const liquids: HubPage = {
       imageAlt: "",
       nodeAngle: 62,
       pill: { x: 655, y: 854 },
+      panelY: 430,
+    },
+  ],
+};
+
+export const aerosols: HubPage = {
+  id: "aerosols",
+  title: "Aerosols",
+  hub: { ...HUB_SIZE, cx: 321, cy: 589, photo: "./assets/aerosols/hub.jpg" },
+  panel: { x: 1246, y: 186, width: 564, height: 715 },
+  sections: [
+    {
+      id: "meteredDose",
+      label: "Metered Dose",
+      title: "Specialized Aerosol Manufacturing",
+      body: "Dedicated aerosol filling capabilities support development and commercial manufacturing of aerosol dosage forms. DPT operates a dedicated aerosol manufacturing facility in San Antonio, TX.",
+      image: "./assets/aerosols/metered-dose.jpg",
+      imageAlt: "",
+      nodeAngle: -42,
+      pill: { x: 701, y: 298 },
+    },
+    {
+      id: "foams",
+      label: "Foams",
+      body: "Development and manufacturing of foam products supported by formulation expertise and aerosol filling capabilities.",
+      image: "./assets/aerosols/foams.jpg",
+      imageAlt: "",
+      nodeAngle: 0,
+      pill: { x: 779, y: 555 },
+    },
+    {
+      id: "topicalSprays",
+      label: "Topical Sprays",
+      body: "Topical spray development and manufacturing supported by aerosol filling and commercial-scale operations.",
+      image: "./assets/aerosols/topical-sprays.jpg",
+      imageAlt: "",
+      nodeAngle: 42,
+      pill: { x: 701, y: 802 },
       panelY: 430,
     },
   ],

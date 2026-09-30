@@ -9,16 +9,17 @@ interface Props {
 
 export function DetailPanel({ section, panel, active }: Props) {
   const titleId = `panel-${section.id}-title`
+  const fit = panel.height === undefined || !section.title
   return (
     <section
       id={`panel-${section.id}`}
       className="panel"
       data-active={active}
-      data-fit={panel.height === undefined}
+      data-fit={fit}
       aria-hidden={!active}
       inert={!active}
       {...(section.title ? { 'aria-labelledby': titleId } : { 'aria-label': section.label })}
-      style={{ left: panel.x, top: section.panelY ?? panel.y, width: panel.width, height: panel.height }}
+      style={{ left: panel.x, top: section.panelY ?? panel.y, width: panel.width, height: fit ? undefined : panel.height }}
     >
       <div className="panel-text">
         {section.title && <h2 id={titleId}>{section.title}</h2>}

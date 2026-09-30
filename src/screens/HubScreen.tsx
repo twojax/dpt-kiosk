@@ -29,7 +29,7 @@ export function HubScreen({ page, icon, onHome }: { page: HubPage; icon: ReactNo
   const d = hub.photoRadius * 2
 
   return (
-    <div className="screen" data-open={open ?? 'none'} onClick={onBackgroundTap}>
+    <div className="screen" data-page={page.id} data-open={open ?? 'none'} onClick={onBackgroundTap}>
       <div className="screen-bg" style={{ backgroundImage: `url(${BACKGROUND})` }} />
       <button type="button" className="back-button" onClick={onHome}>
         <BackArrow />

@@ -1,7 +1,14 @@
 import { BACKGROUND, LOGO } from '../content'
 import { Logo } from '../components/Logo'
 
-export type Screen = 'home' | 'development' | 'semiSolids' | 'liquids'
+export type Screen = 'home' | 'development' | 'semiSolids' | 'liquids' | 'aerosols'
+
+const LINKS: { screen: Screen; label: string }[] = [
+  { screen: 'development', label: 'Development' },
+  { screen: 'semiSolids', label: 'Semi-Solids' },
+  { screen: 'liquids', label: 'Liquids' },
+  { screen: 'aerosols', label: 'Aerosols' },
+]
 
 /** Stand-in homepage so the back button has somewhere to go. */
 export function Home({ onOpen }: { onOpen: (screen: Screen) => void }) {
@@ -9,15 +16,17 @@ export function Home({ onOpen }: { onOpen: (screen: Screen) => void }) {
     <div className="screen screen-home">
       <div className="screen-bg" style={{ backgroundImage: `url(${BACKGROUND})` }} />
       <h1 className="screen-title">Homepage</h1>
-      <button type="button" className="back-button home-link" onClick={() => onOpen('development')}>
-        <span>Development</span>
-      </button>
-      <button type="button" className="back-button home-link home-link-2" onClick={() => onOpen('semiSolids')}>
-        <span>Semi-Solids</span>
-      </button>
-      <button type="button" className="back-button home-link home-link-3" onClick={() => onOpen('liquids')}>
-        <span>Liquids</span>
-      </button>
+      {LINKS.map((link, i) => (
+        <button
+          key={link.screen}
+          type="button"
+          className="back-button home-link"
+          style={{ top: 360 + i * 110 }}
+          onClick={() => onOpen(link.screen)}
+        >
+          <span>{link.label}</span>
+        </button>
+      ))}
       <Logo className="screen-logo" src={LOGO.large} />
     </div>
   )
