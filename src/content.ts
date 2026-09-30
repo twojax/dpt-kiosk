@@ -71,6 +71,65 @@ export const PILL = { width: 344, height: 68, tip: 22 };
 
 export const IDLE_TIMEOUT_MS = 90_000;
 
+export type OverviewIcon =
+  | "microscope"
+  | "gears"
+  | "handshake"
+  | "people"
+  | "growth"
+  | "network"
+  | "viatris"
+  | "products"
+  | "customers"
+  | "facilities";
+
+export interface Milestone {
+  year: string;
+  /** Bold lead line(s); "\n" forces a line break. */
+  title: string;
+  detail?: string;
+  icon: OverviewIcon;
+  /** Centre of the node, year and card. */
+  x: number;
+  cardWidth: number;
+}
+
+export interface Stat {
+  value: string;
+  /** "\n" forces a line break. */
+  label: string;
+  icon: OverviewIcon;
+  /** Left edge of the icon circle. */
+  x: number;
+  small?: boolean;
+}
+
+export const CORPORATE_OVERVIEW = {
+  title: "Corporate Overview",
+  timeline: { lineY: 392, nodeSize: 112, yearY: 463, cardY: 510, cardHeight: 122 },
+  milestones: [
+    { year: "1938", icon: "microscope", title: "Founded as\nTexas Pharmacal\nCompany", detail: "(San Antonio, TX)", x: 191, cardWidth: 191 },
+    { year: "1966", icon: "gears", title: "Acquired by\nWarner-Lambert", x: 423, cardWidth: 180 },
+    { year: "1979", icon: "handshake", title: "Contract\nManufacturing\nBegins", detail: "(Acquired by Alcon)", x: 655, cardWidth: 201 },
+    { year: "1990", icon: "people", title: "DPT Laboratories\nEstablished", detail: "(Acquired by DFB\nPharmaceuticals)", x: 903, cardWidth: 201 },
+    { year: "2012", icon: "growth", title: "Expansion of\nCommercial Capabilities", detail: "(Acquired by Renaissance)", x: 1172, cardWidth: 253 },
+    { year: "2016", icon: "network", title: "Integration into a\nGlobal Pharmaceutical\nOrganization", detail: "(Acquired by Mylan Inc.)", x: 1472, cardWidth: 261 },
+    { year: "2020", icon: "viatris", title: "Part of Viatris", detail: "A stronger future\nfor patients\nworldwide", x: 1734, cardWidth: 173 },
+  ] satisfies Milestone[],
+  stats: {
+    bar: { x: 96, y: 679, width: 1723, height: 191 },
+    iconSize: 114,
+    /** Vertical divider lines, in stage x. */
+    dividers: [536, 949, 1397],
+    items: [
+      { value: "500+", label: "Products\nCommercialized", icon: "products", x: 134 },
+      { value: "40+", label: "Commercial\nCustomers", icon: "customers", x: 576 },
+      { value: "506,978", label: "sq ft of Integrated\nDevelopment &\nManufacturing Campus", icon: "microscope", x: 992, small: true },
+      { value: "5", label: "Specialized\nFacilities", icon: "facilities", x: 1437 },
+    ] satisfies Stat[],
+  },
+};
+
 export const HOME = {
   headline:
     "A leading CDMO at the forefront of semi-solid, liquid, and aerosol dosage forms since 1938",

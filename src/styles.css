@@ -4,6 +4,8 @@
   --violet: #4b3cb0;
   --violet-light: #7a67d6;
   --white: #ffffff;
+  --yellow: #f5e02a;
+  --navy-card: #29266d;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   font-family: 'Open Sans', 'Segoe UI', system-ui, sans-serif;
 }
@@ -328,6 +330,77 @@ button:focus-visible {
 
 .hex-button-lg .hex-label { font-size: 32px; }
 .hex-button-lg .hex-plus { right: 0; top: -16px; width: 44px; height: 44px; }
+
+/* ---------- Corporate overview ---------- */
+
+.overview-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy-card);
+  border: 4px solid var(--yellow);
+  box-shadow: 0 6px 16px rgba(18, 10, 64, 0.3);
+}
+.overview-icon svg { width: 58%; height: 58%; }
+
+.timeline-line { height: 3px; background: var(--white); }
+.timeline { inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+.timeline li > * { position: absolute; }
+
+.milestone-year {
+  width: 200px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.milestone-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 10px 0;
+  background: var(--white);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(18, 10, 64, 0.3);
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  white-space: pre-line;
+}
+.milestone-card span { color: #2c2766; }
+
+.stats-bar { background: var(--navy-card); border-radius: 6px; }
+.stats-divider {
+  position: absolute;
+  top: 32px;
+  width: 2px;
+  height: 126px;
+  background: rgba(255, 255, 255, 0.54);
+}
+.stat {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+.stat .overview-icon { flex: none; box-shadow: none; }
+.stat-value {
+  color: var(--yellow);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+.stat-label {
+  margin-top: 12px;
+  font-size: 25px;
+  line-height: 30px;
+  white-space: pre-line;
+}
+.stat[data-small='true'] .stat-label { font-size: 18px; line-height: 20px; }
 
 .shared-defs { position: absolute; }
 
