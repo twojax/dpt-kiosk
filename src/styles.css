@@ -75,19 +75,22 @@ button:focus-visible {
 .back-button {
   left: 69px;
   top: 62px;
-  height: 81px;
-  padding: 0 44px 0 34px;
+  height: 58px;
+  padding: 0 28px 0 22px;
   display: flex;
   align-items: center;
-  gap: 26px;
-  font-size: 30px;
+  gap: 14px;
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: 0.01em;
-  background: rgba(27, 22, 80, 0.88);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(27, 22, 80, 0.4);
   border-radius: 6px;
   transition: background 150ms;
 }
-.back-button:active { background: rgba(27, 22, 80, 1); }
+.back-button:active { background: rgba(27, 22, 80, 0.8); }
+.back-button svg { width: 26px; height: 26px; }
+.back-button::before { content: ''; position: absolute; inset: -14px -10px; }
 
 .screen-title {
   left: 130px;
