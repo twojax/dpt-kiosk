@@ -100,7 +100,7 @@ export const development: HubPage = {
 export const semiSolids: HubPage = {
   title: "Semi-Solids",
   hub: { ...HUB_SIZE, cx: 365, cy: 598, photo: "./assets/semi-solids/hub.jpg" },
-  panel: { x: 1264, y: 232, width: 500 },
+  panel: { x: 1264, y: 232, width: 532 },
   sections: [
     {
       id: "creams",
@@ -138,6 +138,61 @@ export const semiSolids: HubPage = {
       imageAlt: "",
       nodeAngle: 52,
       pill: { x: 710, y: 846 },
+      panelY: 430,
+    },
+  ],
+};
+
+export const liquids: HubPage = {
+  title: "Liquids",
+  hub: { ...HUB_SIZE, cx: 350, cy: 590, photo: "./assets/liquids/hub.jpg" },
+  panel: { x: 1242, y: 204, width: 554 },
+  sections: [
+    {
+      id: "solutions",
+      label: "Solutions",
+      body: "Development and manufacturing of solution-based products supported by pilot, clinical, and commercial-scale operations.",
+      image: "./assets/liquids/solutions.jpg",
+      imageAlt: "",
+      nodeAngle: -62,
+      pill: { x: 655, y: 251 },
+    },
+    {
+      id: "suspensions",
+      label: "Suspensions",
+      body: "Suspension formulation and manufacturing supported by advanced compounding and analytical testing capabilities.",
+      image: "./assets/liquids/suspensions.jpg",
+      imageAlt: "",
+      nodeAngle: -34,
+      pill: { x: 760, y: 407 },
+    },
+    {
+      id: "syrups",
+      label: "Syrups",
+      body: "Oral liquid development and manufacturing from clinical supply through commercial launch.",
+      image: "./assets/liquids/syrups.jpg",
+      imageAlt: "",
+      nodeAngle: 0,
+      pill: { x: 806, y: 556 },
+    },
+    {
+      id: "drops",
+      label: "Drops",
+      body: "Liquid dosage form development supported by precision fill-finish operations and analytical testing.",
+      image: "./assets/liquids/drops.jpg",
+      imageAlt: "",
+      nodeAngle: 34,
+      pill: { x: 760, y: 705 },
+      panelY: 430,
+    },
+    {
+      id: "nasalSprays",
+      label: "Nasal Sprays",
+      body: "Formulation and manufacturing support for nasal dosage forms utilizing DPT's spray development expertise.",
+      image: "./assets/liquids/nasal-sprays.jpg",
+      imageAlt: "",
+      nodeAngle: 62,
+      pill: { x: 655, y: 854 },
       panelY: 430,
     },
   ],

@@ -250,6 +250,8 @@ button:focus-visible {
   width: 100%;
   object-fit: cover;
 }
+.panel[data-fit='true'] .panel-text { padding: 40px 40px 34px; }
+.panel[data-fit='true'] p { font-size: 23px; line-height: 1.25; }
 .panel[data-fit='true'] .panel-image { flex: none; height: auto; aspect-ratio: 3 / 2; }
 
 /* ---------- Missing-asset placeholder ---------- */
@@ -270,6 +272,7 @@ button:focus-visible {
 
 .screen-home .home-link { left: 130px; top: 360px; }
 .screen-home .home-link-2 { top: 470px; }
+.screen-home .home-link-3 { top: 580px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; }

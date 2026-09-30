@@ -1,7 +1,7 @@
 import { BACKGROUND, LOGO } from '../content'
 import { Logo } from '../components/Logo'
 
-export type Screen = 'home' | 'development' | 'semiSolids'
+export type Screen = 'home' | 'development' | 'semiSolids' | 'liquids'
 
 /** Stand-in homepage so the back button has somewhere to go. */
 export function Home({ onOpen }: { onOpen: (screen: Screen) => void }) {
@@ -14,6 +14,9 @@ export function Home({ onOpen }: { onOpen: (screen: Screen) => void }) {
       </button>
       <button type="button" className="back-button home-link home-link-2" onClick={() => onOpen('semiSolids')}>
         <span>Semi-Solids</span>
+      </button>
+      <button type="button" className="back-button home-link home-link-3" onClick={() => onOpen('liquids')}>
+        <span>Liquids</span>
       </button>
       <Logo className="screen-logo" src={LOGO.large} />
     </div>
