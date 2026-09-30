@@ -295,3 +295,55 @@ export const analytics: HubPage = {
     },
   ],
 };
+
+export const commercialSupply: HubPage = {
+  id: "commercialSupply",
+  title: "Commercial Supply",
+  hub: {
+    ...HUB_SIZE,
+    cx: 357,
+    cy: 632,
+    photo: "./assets/commercial-supply/hub.jpg",
+  },
+  panel: { x: 1284, y: 242, width: 532 },
+  sections: [
+    {
+      id: "packaging",
+      label: "Packaging",
+      body: "Packaging capabilities include bottles, jars, tubes, airless pumps, metered-dose pumps, aluminum canisters, and applicator-based systems.",
+      image: "./assets/commercial-supply/packaging.jpg",
+      imageAlt: "",
+      nodeAngle: -51,
+      pill: { x: 697, y: 313 },
+    },
+    {
+      id: "commercialManufacturing",
+      label: "Commercial Manufacturing",
+      body: "Commercial operations support finished product packaging and serialization readiness for global markets.",
+      image: "./assets/commercial-supply/commercial-manufacturing.jpg",
+      imageAlt: "",
+      nodeAngle: -19,
+      pill: { x: 733, y: 511, width: 482 },
+    },
+    {
+      id: "warehouseDistribution",
+      label: "Warehouse & Distribution",
+      body: "DPT supports regulated pharmaceutical supply through quality systems and commercial launch capabilities.",
+      image: "./assets/commercial-supply/warehouse-and-distribution.jpg",
+      imageAlt: "",
+      nodeAngle: 19,
+      pill: { x: 733, y: 685, width: 482 },
+      panelY: 300,
+    },
+    {
+      id: "commercialSupply",
+      label: "Commercial Supply",
+      body: "Dedicated commercial supply teams support launch coordination, ongoing commercialization, and repeatable replenishment supply.",
+      image: "./assets/commercial-supply/commercial-supply.jpg",
+      imageAlt: "",
+      nodeAngle: 51,
+      pill: { x: 697, y: 874 },
+      panelY: 460,
+    },
+  ],
+};

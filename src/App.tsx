@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { aerosols, analytics, development, liquids, semiSolids } from './content'
+import { aerosols, analytics, commercialSupply, development, liquids, semiSolids } from './content'
 import { Stage } from './components/Stage'
-import { AerosolCan, Analytics, Droplet, Microscope, SemiSolids } from './components/Icons'
+import { AerosolCan, Analytics, Droplet, Globe, Microscope, SemiSolids } from './components/Icons'
 import { HubScreen } from './screens/HubScreen'
 import { Home, type Screen } from './screens/Home'
 
@@ -17,6 +17,9 @@ export default function App() {
       {screen === 'liquids' && <HubScreen page={liquids} icon={<Droplet />} onHome={goHome} />}
       {screen === 'aerosols' && <HubScreen page={aerosols} icon={<AerosolCan />} onHome={goHome} />}
       {screen === 'analytics' && <HubScreen page={analytics} icon={<Analytics />} onHome={goHome} />}
+      {screen === 'commercialSupply' && (
+        <HubScreen page={commercialSupply} icon={<Globe />} onHome={goHome} />
+      )}
     </Stage>
   )
 }

@@ -1,7 +1,7 @@
 import { BACKGROUND, LOGO } from '../content'
 import { Logo } from '../components/Logo'
 
-export type Screen = 'home' | 'development' | 'semiSolids' | 'liquids' | 'aerosols' | 'analytics'
+export type Screen = 'home' | 'development' | 'semiSolids' | 'liquids' | 'aerosols' | 'analytics' | 'commercialSupply'
 
 const LINKS: { screen: Screen; label: string }[] = [
   { screen: 'development', label: 'Development' },
@@ -9,6 +9,7 @@ const LINKS: { screen: Screen; label: string }[] = [
   { screen: 'liquids', label: 'Liquids' },
   { screen: 'aerosols', label: 'Aerosols' },
   { screen: 'analytics', label: 'Analytics' },
+  { screen: 'commercialSupply', label: 'Commercial Supply' },
 ]
 
 /** Stand-in homepage so the back button has somewhere to go. */
@@ -22,7 +23,7 @@ export function Home({ onOpen }: { onOpen: (screen: Screen) => void }) {
           key={link.screen}
           type="button"
           className="back-button home-link"
-          style={{ top: 320 + i * 100 }}
+          style={{ top: 290 + i * 92 }}
           onClick={() => onOpen(link.screen)}
         >
           <span>{link.label}</span>
