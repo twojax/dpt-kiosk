@@ -27,6 +27,15 @@ export function Stage({ children }: { children: ReactNode }) {
           transform: `translate(-50%, -50%) scale(${scale})`,
         }}
       >
+        <svg className="shared-defs" width="0" height="0" aria-hidden="true">
+          <defs>
+            {/* Shared by every HexButton */}
+            <linearGradient id="hexFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#ffffff" />
+              <stop offset="1" stopColor="#eeedf5" />
+            </linearGradient>
+          </defs>
+        </svg>
         {children}
       </div>
     </div>

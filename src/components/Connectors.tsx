@@ -12,14 +12,6 @@ export function Connectors({ page, open }: { page: HubPage; open: string | null 
       viewBox={`0 0 ${STAGE.width} ${STAGE.height}`}
       aria-hidden="true"
     >
-      <defs>
-        {/* Shared by every HexButton */}
-        <linearGradient id="hexFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="1" stopColor="#eeedf5" />
-        </linearGradient>
-      </defs>
-
       <path className="arc" d={arcPath(hub)} />
 
       {sections.map((s) => (

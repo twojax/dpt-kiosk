@@ -46,6 +46,16 @@ export interface HubPage {
   sections: Section[];
 }
 
+export type Screen =
+  | "home"
+  | "corporateOverview"
+  | "development"
+  | "semiSolids"
+  | "liquids"
+  | "aerosols"
+  | "analytics"
+  | "commercialSupply";
+
 export const STAGE = { width: 1920, height: 1080 };
 
 export const BACKGROUND = "./assets/bg-bubbles.jpg";
@@ -60,6 +70,22 @@ const HUB_SIZE = { photoRadius: 214, arcRadius: 266, arcSpan: 88 };
 export const PILL = { width: 344, height: 68, tip: 22 };
 
 export const IDLE_TIMEOUT_MS = 90_000;
+
+export const HOME = {
+  headline:
+    "A leading CDMO at the forefront of semi-solid, liquid, and aerosol dosage forms since 1938",
+  /** First card's top-left; the rest follow at width + gap. */
+  cards: { x: 111, y: 484, width: 258, height: 324, gap: 30 },
+  sections: [
+    { screen: "development", label: "Development", image: "./assets/home/development.jpg" },
+    { screen: "semiSolids", label: "Semi-Solids", image: "./assets/home/semi-solids.jpg" },
+    { screen: "liquids", label: "Liquids", image: "./assets/home/liquids.jpg" },
+    { screen: "aerosols", label: "Aerosols", image: "./assets/home/aerosols.jpg" },
+    { screen: "analytics", label: "Analytics", image: "./assets/home/analytics.jpg" },
+    { screen: "commercialSupply", label: "Commercial Supply", image: "./assets/home/commercial-supply.jpg" },
+  ] satisfies { screen: Screen; label: string; image: string }[],
+  overview: { label: "Corporate Overview", x: 670, y: 882, width: 577, height: 77 },
+};
 
 export const development: HubPage = {
   id: "development",

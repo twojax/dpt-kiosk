@@ -277,12 +277,59 @@ button:focus-visible {
   color: #4b4580;
   font-size: 18px;
   font-family: ui-monospace, monospace;
+  text-align: center;
+  overflow-wrap: anywhere;
+  padding: 12px;
 }
 .hub .asset-missing { background: #5a49c2; color: transparent; }
 
-/* ---------- Home stand-in ---------- */
+/* ---------- Home ---------- */
 
-.screen-home .home-link { left: 130px; }
+.home-logo { left: 94px; top: 65px; width: 345px; }
+.home-headline {
+  left: 120px;
+  top: 272px;
+  width: 1480px;
+  margin: 0;
+  font-size: 66px;
+  font-weight: 300;
+  line-height: 74px;
+}
+
+.home-card {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(18, 10, 64, 0.3);
+  transition: transform 140ms var(--ease-out);
+}
+.home-card:active { transform: scale(0.97); }
+.home-card-label {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 52px;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.home-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-card .asset-missing { display: grid; }
+
+.hex-button-lg .hex-label { font-size: 32px; }
+.hex-button-lg .hex-plus { right: 0; top: -16px; width: 44px; height: 44px; }
+
+.shared-defs { position: absolute; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; }
